@@ -1,0 +1,45 @@
+//Dot Product as a Procedure:
+
+procedure dot_product(v1, v2: array of IR) returns ps: IR
+VAR
+v1 : ARRAY_OF STRING[];
+v2 : ARRAY_OF STRING[];
+ps :INTEGER ;
+//  input: two arrays representing vectors v1 and v2
+//  output: scalar value ps representing the dot product of v1 and v2
+  ps <- 0
+  for i in 0 to length(v1) - 1 do
+    ps <- ps + v1[i] * v2[i]
+  end for
+end procedure
+//Algorithm for Orthogonal Vectors Detection using Dot Product Procedure:
+procedure orthogonal_vectors_detection(vectors: array of array of IR)
+  input: 2D array vectors where each row represents a vector
+  for i in 0 to length(vectors) - 1 do
+    for j in i+1 to length(vectors) - 1 do
+      if dot_product(vectors[i], vectors[j]) = 0 then
+        print("The vectors", i, "and", j, "are orthogonal")
+      end if
+    end for
+  end for
+end procedure
+//Algorithm for Orthogonal Vectors Detection using Dot Product Function:
+function dot_product(v1, v2: array of IR) returns ps: IR
+  input: two arrays representing vectors v1 and v2
+  output: scalar value ps representing the dot product of v1 and v2
+  ps <- 0
+  for i in 0 to length(v1) - 1 do
+    ps <- ps + v1[i] * v2[i]
+  end for
+end function
+
+procedure orthogonal_vectors_detection(vectors: array of array of IR)
+  input: 2D array vectors where each row represents a vector
+  for i in 0 to length(vectors) - 1 do
+    for j in i+1 to length(vectors) - 1 do
+      if dot_product(vectors[i], vectors[j]) = 0 then
+        print("The vectors", i, "and", j, "are orthogonal")
+      end if
+    end for
+  end for
+end procedure
